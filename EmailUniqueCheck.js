@@ -7,6 +7,7 @@ handlers.checkEmail = function(args, context)
 	var emailsStr = JSON.stringify(emails);
 	log.debug("emails: " + emailsStr);
 	
+	var playerEmail = args['email'];
 	var emailsCollision = emailsStr.includes(playerEmail);
 	emails.push(playerEmail);
 	log.debug("push: " + JSON.stringify(emails));
