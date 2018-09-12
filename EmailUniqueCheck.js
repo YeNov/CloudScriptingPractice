@@ -7,7 +7,19 @@ handlers.checkEmail = function(args, context)
 	
 	var playerEmail = args['email'];
 	log.debug("emails: " + JSON.stringify(emails));
-	log.debug("contains: " + JSON.stringify(emails).includes(playerEmail));
+	var emailsCollision = JSON.stringify(emails).includes(playerEmail);
 	
-    return {responseContent: emails};
+	request = {
+		key: "RegisteredEmails",
+		value: playerEmail
+	};	
+	response = server.SetTitleData(request);
+	log.debug("set: " + JSON.stringify(response));
+	
+	request = ["RegisteredEmails"];
+	response = server.GetTitleData(request);
+	log.debug("get: " + JSON.stringify(response));
+
+	
+    return emailsCollision;
 };
