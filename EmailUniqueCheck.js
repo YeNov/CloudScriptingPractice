@@ -1,9 +1,9 @@
 handlers.checkEmail = function(args, context) 
 {
 	var request = ["RegisteredEmails"];
-	var response = server.GetTitleData(request);//жсон
-	log.debug("args: " + JSON.stringify(args));
-	var data = response["Data"];//здесь получаю нормальную строку
-	var emails = data["RegisteredEmails"];//хочу получить массив по ключу, правильно все написал, но возвращает ничего
+	var response = server.GetTitleData(request);
+	log.debug("args: " + args['email']);
+	var data = response["Data"];
+	var emails = data["RegisteredEmails"];
     return {responseContent: emails};
 };
