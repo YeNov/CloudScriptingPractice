@@ -11,8 +11,8 @@ handlers.checkEmail = function(args, context)
 	
 	var obj = JSON.parse(emails);
 	obj['emails'].push(playerEmail);
-	jsonStr = JSON.stringify(obj);
-	log.debug("push: " + JSON.stringify(jsonStr));
+	emails = JSON.stringify(obj);
+	log.debug("push: " + JSON.stringify(emails));
 
 	request = {
 		key: "RegisteredEmails",
