@@ -2,7 +2,7 @@ handlers.checkEmail = function(args, context)
 {
 	var request = ["RegisteredEmails"];
 	var response = server.GetTitleData(request);
-	var emails = response['Data'];
-	emails = emails['RegisteredEmails'];
+	var data = response['Data'];
+	var emails = data['RegisteredEmails'];
     return emails;
 }
