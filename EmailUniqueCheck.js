@@ -6,10 +6,11 @@ handlers.checkEmail = function(args, context)
 	var emails = data["RegisteredEmails"];
 	log.debug("emails: " + JSON.stringify(emails));
 	
+	var emailsStr = JSON.stringify(emails);
 	var playerEmail = args['email'];	
-	var emailsCollision = JSON.stringify(emails).includes(playerEmail);
+	var emailsCollision = emailsStr.includes(playerEmail);
 	
-	emails['emails'].push(playerEmail);
+	emailsStr['emails'].push(playerEmail);
 	log.debug("push: " + JSON.stringify(emails));
 
 	request = {
