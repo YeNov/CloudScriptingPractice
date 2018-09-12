@@ -2,7 +2,6 @@ handlers.checkEmail = function(args, context)
 {
 	var request = ["RegisteredEmails"];
 	var response = server.GetTitleData(request);
-		log.debug("response: " + JSON.stringify(response));
 	var data = response["Data"];
 	var emails = data["RegisteredEmails"];
 	log.debug("emails: " + JSON.stringify(emails));
@@ -10,9 +9,10 @@ handlers.checkEmail = function(args, context)
 	var playerEmail = args['email'];	
 	var emailsCollision = JSON.stringify(emails).includes(playerEmail);
 	
-	var obj = JSON.parse(jsonStr);
-	obj['theTeam'].push({"teamId":"4","status":"pending"});
+	var obj = JSON.parse(emails);
+	obj['emails'].push(playerEmail);
 	jsonStr = JSON.stringify(obj);
+	log.debug("push: " + JSON.stringify(jsonStr));
 
 	request = {
 		key: "RegisteredEmails",
