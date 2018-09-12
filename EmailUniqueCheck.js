@@ -13,7 +13,7 @@ handlers.checkEmail = function(args, context)
 	var obj = JSON.parse(emails);
 	obj.push(playerEmail);
 	emails = JSON.stringify;
-	log.debug("push: " + JSON.stringify(emails));
+	log.debug("push: " + emails);
 
 	request = {
 		key: "RegisteredEmails",
