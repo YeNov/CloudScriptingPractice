@@ -8,4 +8,4 @@ handlers.checkEmail = function(args, context)
 	var emails = data["RegisteredEmails"];//хочу получить массив по ключу, правильно все написал, но возвращает ничего
 	log.debug("emails: " + JSON.stringify(emails) + " of type: " + typeof response);
     return JSON.stringify(emails);
-}
+};
