@@ -9,9 +9,10 @@ handlers.checkEmail = function(args, context)
 	log.debug("emails: " + JSON.stringify(emails));
 	var emailsCollision = JSON.stringify(emails).includes(playerEmail);
 	
+	emails.replace("}",	","+playerEmail+"}");
 	request = {
 		key: "RegisteredEmails",
-		value: playerEmail
+		value: emails
 	};	
 	response = server.SetTitleData(request);
 	log.debug("set: " + JSON.stringify(response));
