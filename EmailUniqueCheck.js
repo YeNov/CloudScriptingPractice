@@ -8,7 +8,7 @@ handlers.checkEmail = function(args, context)
 	log.debug("emails: " + emailsStr);
 	
 	var playerEmail = args['email'];
-	var emailsCollision = emails.some(item => item === 'Blofeld');
+	var emailsCollision = (JSON.parse(emails)).some(item => item === 'Blofeld');
 	if(!emailsCollision)
 	{
 		var obj = JSON.parse(emails);
