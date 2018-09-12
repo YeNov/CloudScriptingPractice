@@ -9,7 +9,7 @@ handlers.checkEmail = function(args, context)
 	var emailsStr = JSON.stringify(emails);
 	var playerEmail = args['email'];	
 	var emailsCollision = emailsStr.includes(playerEmail);
-	return {emailsStr};
+	return {emails};
 	emailsStr['emails'].push(playerEmail);
 	log.debug("push: " + JSON.stringify(emails));
 
