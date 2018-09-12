@@ -5,10 +5,10 @@ handlers.checkEmail = function(args, context)
 	var data = response["Data"];
 	var emails = data["RegisteredEmails"];
 	var emailsStr = JSON.stringify(emails);
-	//log.debug("emails: " + emailsStr);
+	log.debug("emails: " + emailsStr);
 	
 	var playerEmail = args['email'];
-	var emailsCollision = emailsStr.includes(playerEmail);
+	var emailsCollision = emails.some(item => item === 'Blofeld');
 	if(!emailsCollision)
 	{
 		var obj = JSON.parse(emails);
