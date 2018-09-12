@@ -4,8 +4,8 @@ handlers.checkEmail = function(args, context)
 	var response = server.GetTitleData(request);
 	var data = response["Data"];
 	var emails = data["RegisteredEmails"];
-	log.debug("emails: " + JSON.stringify(emails));
-	
+	var emailsStr = JSON.stringify(emails);
+	log.debug("emails: " + emailsStr);
 	
 	var emailsCollision = emailsStr.includes(playerEmail);
 	emails.push(playerEmail);
