@@ -4,5 +4,5 @@ handlers.checkEmail = function(args, context)
 	var response = server.GetTitleData(request);
 	var data = JSON.Parse(response);
 	var emails = data.RegisteredEmails;
-    return emails;
+    return data;
 }
