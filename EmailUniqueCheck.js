@@ -45,7 +45,7 @@ handlers.AddEvent = function(args, context)
 	//Events are stored as array in title data under key "Events"
 	
 	var getEventsRequest = ["Events"];
-	var getEventsResponse = server.GetTitleData(request);
+	var getEventsResponse = server.GetTitleData(getEventsRequest);
 	log.debug("Get events: " + JSON.stringify(getEventsResponse));
 	
 	var obj = JSON.parse(getEventsResponse["Data"]);
@@ -59,4 +59,6 @@ handlers.AddEvent = function(args, context)
 		value: setEventsValue
 	};	
 	server.SetTitleData(setEventsRequest);
+	
+	return;
 }
