@@ -5,7 +5,7 @@ handlers.checkEmail = function(args, context)
 	var data = response["Data"];
 	var emails = data["RegisteredEmails"];
 	var emailsStr = JSON.stringify(emails);
-	log.debug("emails: " + emailsStr);
+	//log.debug("emails: " + emailsStr);
 	
 	var playerEmail = args['email'];
 	var emailsCollision = (JSON.parse(emails)).some(item => item === playerEmail);
@@ -46,10 +46,12 @@ handlers.AddEvent = function(args, context)
 	
 	var getEventsRequest = ["Events"];
 	var getEventsResponse = server.GetTitleData(request);
+	log.debug("Get events: " + JSON.stringify(getEventsResponse));
 	
 	var obj = JSON.parse(getEventsResponse["Data"]);
 	obj.push(args["Event"]);
 	var setEventsValue = JSON.stringify(obj);
+	log.debug("push: " + setEventsValue);
 	
 	var setEventsRequest =
 	{
