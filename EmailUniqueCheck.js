@@ -30,3 +30,31 @@ handlers.checkEmail = function(args, context)
 	
     return {emailsCollision};
 };
+
+handlers.AddEvent = function(args, context) 
+{
+	/*Event model:
+	Name: string
+	From: string (year, day, month)
+	To: string (year, day, month)
+	PrizesArr: Prize[]
+	SkinLevelRequirementsMap: Dictionary<string, int>
+	bIsActive: boolean
+	*/
+	
+	//Events are stored as array in title data under key "Events"
+	
+	var getEventsRequest = ["Events"];
+	var getEventsResponse = server.GetTitleData(request);
+	
+	var obj = JSON.parse(getEventsResponse["Data"]);
+	obj.push(args["Event"]);
+	var setEventsValue = JSON.stringify(obj);
+	
+	var setEventsRequest =
+	{
+		key: "Events",
+		value: setEventsValue
+	};	
+	server.SetTitleData(setEventsRequest);
+}
